@@ -1,0 +1,81 @@
+nav {
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 10px 0px 5px 0px;
+    display: flex;
+    box-shadow: 1px 2px 25px -12px rgba(199,199,199,1);
+    position: fixed;
+    z-index: 9;
+  
+  }
+  
+  nav ul {
+    list-style: none;
+    text-align: center;
+  }
+  nav ul li {
+    display: inline-block;
+  }
+  nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: black;
+    margin: 0 10px;
+    font-weight: 500;
+  }
+  nav ul li a,
+  nav ul li a:after,
+  nav ul li a:before {
+    transition: all .5s;
+  }
+  nav ul li a:hover {
+    color: #673ab7;
+    font-weight: bold;
+    cursor: pointer!important;
+  }
+  nav ul li a.active {
+    color: #673ab7;
+    font-weight: bold;
+  }
+  
+  /* By Dominik Biedebach @domobch */
+  
+  
+  /* stroke */
+  nav.stroke ul li a,
+  nav.fill ul li a {
+    position: relative;
+  }
+  nav.stroke ul li a:after,
+  nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #673ab7;
+    height: 2px;
+  }
+  
+  nav.stroke ul li a:hover:after {
+    width: 100%;
+  }
+  
+  nav.stroke ul li a.active:after {
+    width: 100%;
+  }
+  
+  .logo{
+    width: 180px;
+    border-radius: 5px;
+    margin-right: 20%;
+  }
+  .dropdown-link{
+    text-decoration: none;
+    color: #242424;
+  }
