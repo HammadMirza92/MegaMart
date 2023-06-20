@@ -4,4 +4,29 @@
 
 <div>
     {{productData | json}}
+    
+</div>
+
+
+<div class="card-container" *ngIf="productData">
+    <div class="card" *ngFor="let product of productData">
+        <img src="{{product.image}}" class="img-responsive" alt="image">
+        <p>{{product.shortDescription}}</p>
+        <div *ngFor="let variation of product.variations">
+            <div class="variation-container">
+                <div *ngFor="let option of variation.options">
+                  <div *ngIf="option.name === 'Color'">
+                    <div>
+                      <p class="variationBox" [ngStyle]="{'background-color': option.option ,'border-color': option.option === selectedColor ? 'black' : 'white'  }" (click)="selectColor(option.option)"></p>
+                    </div>
+                  </div>
+                  <div *ngIf="option == 'Colors'">
+                    <h1>adsasd</h1>
+                  </div>
+                </div>
+              </div>
+              
+        </div>
+    </div>
+   
 </div>

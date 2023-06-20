@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductServiceService } from '../../services/product-service.service';
+import { ProductModel } from 'src/app/model/productModel.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -9,6 +10,12 @@ import { ProductServiceService } from '../../services/product-service.service';
 export class ProductListComponent {
 
   productData:any;
+  selectedColor: string = "white";
+
+  selectColor(color: string) {
+    this.selectedColor = color;
+  }
+
   constructor(private prodService:ProductServiceService) {
 
     
