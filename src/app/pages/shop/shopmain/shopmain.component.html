@@ -1,0 +1,21 @@
+
+
+
+<div class="loadingspinner" *ngIf="!productData">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="container product-container" >
+    <div class="shopTop-banner-container">
+        <img class="shopTop-banner" src="https://img.freepik.com/free-vector/black-friday-sale-banner-design-with-shopping-trolly_1055-9167.jpg"/>
+    </div>
+    <div class="row">
+
+        <div class="col-md-4 search-sideBar">
+            
+        </div>
+        <div class="col-md-8 ">
+            <app-product-list [productDataInput]="productData"></app-product-list>
+        </div>
+    </div>
+</div>

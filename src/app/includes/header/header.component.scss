@@ -31,12 +31,12 @@ nav {
     transition: all .5s;
   }
   nav ul li a:hover {
-    color: #673ab7;
+    color: #ffb30e;
     font-weight: bold;
     cursor: pointer!important;
   }
   nav ul li a.active {
-    color: #673ab7;
+    color: #ffb30e;
     font-weight: bold;
   }
   
@@ -58,7 +58,7 @@ nav {
     width: 0%;
     content: '.';
     color: transparent;
-    background: #673ab7;
+    background: #ffb30e;
     height: 2px;
   }
   
