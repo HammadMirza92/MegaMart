@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ShopService } from '../services/shop.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { end } from '@popperjs/core';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-shopmain',
@@ -12,7 +13,7 @@ export class ShopmainComponent {
   productData:any;
  
 
-  constructor(private shopService:ShopService,private _snackBar: MatSnackBar,) {
+  constructor(private shopService:ShopService,private _snackBar: MatSnackBar,private formBuilder:FormBuilder) {
     this.shopService.callService().subscribe(
       (data) => {
         this.productData = data;
@@ -27,5 +28,9 @@ export class ShopmainComponent {
       }
     );
     
+  }
+
+  saveForm(){
+
   }
 }
