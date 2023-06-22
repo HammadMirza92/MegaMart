@@ -7,15 +7,22 @@ import { IProduct, ProductType } from 'src/app/model/productModel.interface';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
+  @Input()productDataInput:IProduct[]=[];
+  
   selectedColor: string = "white";
   variationProdiuctPrice:number = 0.00;
   productType = ProductType;
 
-  
+
+  constructor() {
+   
+    
+  }
+
   selectColor(product: any) {
     this.selectedColor = product.option;
     this.variationProdiuctPrice = product.price;
   }
 
-  @Input()productDataInput:IProduct[]=[];
+ 
 }
