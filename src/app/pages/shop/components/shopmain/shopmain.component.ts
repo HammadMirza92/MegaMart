@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ShopService } from '../services/shop.service';
+import { ShopService } from '../../services/shop.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { end } from '@popperjs/core';
 import { FormBuilder } from '@angular/forms';

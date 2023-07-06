@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ShopRoutingModule } from './shop-routing.module';
-import { ShopmainComponent } from './shopmain/shopmain.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { ShopmainComponent } from './components/shopmain/shopmain.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ShopmainComponent } from './shopmain/shopmain.component';
+import { ShopmainComponent } from './components/shopmain/shopmain.component';
 
 const routes: Routes = [
   {path:'', component:ShopmainComponent}

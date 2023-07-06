@@ -1,7 +1,9 @@
 
 <div class="row">
+   
     <div class="col-md-4 col-12" *ngFor="let product of productDataInput">
-        <div class="product-grid">
+
+        <div class="product-grid" >
             <div class="product-image">
                 <a href="#" class="image">
                     <img class="pic-1" src="{{product.image}}">
@@ -22,28 +24,32 @@
                 <div *ngIf="product.productType == 0">    
                     <div class="price" *ngIf="product.onSale == true"><span>$ {{product.price}}</span> {{product.salePrice}}</div>
                     <div class="price" *ngIf="product.onSale == false">$ {{product.price}}</div>
-                    <button class="add-to-cart" mat-raised-button color="primary">Buy Now</button>
+                    <button class="add-to-cart" mat-raised-button color="primary" (click)="orderSimple(product)">Buy Now</button>
                 </div>
 
                 <!-- Variation Products -->
-
+                                  
                 <div *ngIf="product.productType == productType.variation">
                     <div *ngFor="let variation of product.variations">
+                                      
                         <div class="variation-container">
                             <div *ngFor="let option of variation.options">
                                 <div *ngIf="option.name === 'Color'">
-                                <div>
-                                    <p class="variationBox" [ngStyle]="{'background-color': option.option ,'border-color': option.option === selectedColor ? option.option : 'white'  }" (click)="selectColor(option)"></p>
-                                </div>
+                                    <div>
+                                        <p class="variationBox" [ngStyle]="{'background-color': option.option ,'border-color': option.option === selectedColor ? option.option : 'white'  }" (click)="selectColor(option,product)"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="price"><span>$90.00</span> {{variationProdiuctPrice}}</div>
-                    <button class="add-to-cart" mat-raised-button color="primary">Buy Now</button>
-                </div>
+                    <div class="price" *ngIf="product.onSale == true && optionId == product.variations[0].id"><span>$ {{product.price}}</span> {{variationProductPrice}}</div>
+                    <div class="price"  *ngIf="product.onSale == false && optionId == product.variations[0].id">{{variationProductPrice}}</div>
+                    <button class="add-to-cart" mat-raised-button color="primary" (click)="orderVariation(product)">Buy Now</button>
+                </div> 
                 
+  
+
                 <div>
                     <p class="two-line-ellipsis">{{product.shortDescription }}</p>
                 </div>
