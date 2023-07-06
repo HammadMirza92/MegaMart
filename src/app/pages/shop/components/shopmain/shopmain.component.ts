@@ -14,6 +14,7 @@ export class ShopmainComponent {
  
 
   constructor(private shopService:ShopService,private _snackBar: MatSnackBar,private formBuilder:FormBuilder) {
+   
     this.shopService.callService().subscribe(
       (data) => {
         this.productData = data;
