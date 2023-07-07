@@ -10,10 +10,7 @@ const routes: Routes = [
     path: 'shop',
     loadChildren: () => import('./shop/shop.module').then(m => m.ShopModule)
   },
-  {
-    path: 'adminDashboard',
-    loadChildren: () => import('./admin-dashboard/admin-dashboard.module').then(m => m.AdminDashboardModule),
-  }
+
 ];
 
 @NgModule({
