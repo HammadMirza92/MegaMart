@@ -2,6 +2,8 @@ import { Component, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { end } from '@popperjs/core';
 import { IProduct, ProductType } from 'src/app/model/productModel.interface';
+import { trigger, transition, style, animate } from '@angular/animations';
+
 
 @Component({
   selector: 'app-product-list',
@@ -10,16 +12,21 @@ import { IProduct, ProductType } from 'src/app/model/productModel.interface';
 })
 export class ProductListComponent {
   @Input()productDataInput:IProduct[]=[];
-  
+  filteredData: any;
+   
   selectedColor: string = "";
   selectedProductId:string= "";
   variationProductPrice:number = 0.00;
   productType = ProductType;
   optionId:string= "";
-  constructor(private _snackBar: MatSnackBar) {
-   
-  }
 
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+
+
+  constructor(private _snackBar: MatSnackBar) {
+    
+  }
 
   selectColor(option: any,product:any) {
     console.log(product.id)
@@ -27,7 +34,10 @@ export class ProductListComponent {
     this.variationProductPrice = option.price;
     this.optionId = product.variations[0].id;
   }
-
+  ngOnInit() {
+    this.filteredData = [...this.productDataInput];
+    console.log("filter data is ," ,this.filteredData)
+  }
  
  
   orderSimple(Item:any){
@@ -46,4 +56,16 @@ export class ProductListComponent {
     console.log("prpoduct is ",Item);
     console.log("Select cat is",this.selectedColor);
   }
+
+
+  getPageNumbers(): number[] {
+    const totalPages = Math.ceil(this.filteredData.length / this.itemsPerPage);
+    return Array(totalPages).fill(0).map((_, index) => index + 1);
+  }
+
+  totalPages(): number {
+    return Math.ceil(this.filteredData.length / this.itemsPerPage);
+  }
+
+
 }

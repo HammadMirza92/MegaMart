@@ -11,10 +11,16 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ShopmainComponent {
   productData:any;
- 
 
   constructor(private shopService:ShopService,private _snackBar: MatSnackBar,private formBuilder:FormBuilder) {
-   
+  
+  }
+
+  ngOnInit() {
+    this.fetchProductData();
+  }
+
+  fetchProductData(){
     this.shopService.callService().subscribe(
       (data) => {
         this.productData = data;
@@ -28,9 +34,9 @@ export class ShopmainComponent {
         });
       }
     );
-    
   }
 
+  
   saveForm(){
 
   }
